@@ -58,7 +58,7 @@ d3.csv("https://raw.githubusercontent.com/ScottReinhard/captain-reinhard/master/
 
 queue()
     
-    .defer(d3.json, "https://raw.githubusercontent.com/d3/d3.github.com/master/world-110m.v1.json")             //world data
+    .defer(d3.json, "https://raw.githubusercontent.com/ScottReinhard/captain-reinhard/master/world-110m.json")             //world data
     .defer(d3.tsv, "https://bl.ocks.org/mbostock/raw/4090846/world-country-names.tsv")                          // countries, load flight data here
     .await(ready);                                                                                              //if ready, goes
 

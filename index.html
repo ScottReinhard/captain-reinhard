@@ -2,17 +2,51 @@
 <meta charset="utf-8">
 <style>
 
-h1 {
+#airport {
   position: absolute;
-  top: 500px;
+  top: 30px;
+  font-family: monospace;
+  font-size: 14px;
+  text-align: left;
+  width: 100%;
+  font-weight: normal;
+  letter-spacing: .1em;
+}
+
+#airportData {
+  position: absolute;
+  top: 0px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 180px;
-  text-align: center;
-  width: 960px;
+  font-size: 72px;
+  text-align: left;
+  width: 50%;
+}
+
+#flightTime {
+  position: absolute;
+  top: 130px;
+  font-family: monospace;
+  font-size: 14px;
+  text-align: left;
+  width: 100%;
+  font-weight: normal;
+  letter-spacing: .1em;
+}
+
+#flightData {
+  position: absolute;
+  top: 100px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 72px;
+  text-align: left;
+  width: 100%;
 }
 
 </style>
-<h1></h1>
+<h1 id = "airport"></h1>
+<h1 id = "airportData"></h1>
+<h1 id = "flightTime"></h1>
+<h1 id = "flightData"></h1>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/queue.v1.min.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
@@ -39,27 +73,38 @@ var path = d3.geo.path()
     .projection(projection)
     .context(c);
 
-var title = d3.select("h1");
+var headline = d3.select("h1");
 
 var field1=[];
 var field2=[];
+var title=[];
+var flightLength=[];
 
 d3.csv("https://raw.githubusercontent.com/ScottReinhard/captain-reinhard/master/nov48.csv",function(csv){
               csv.map(function(d){
                   field1.push(d.reclat);
                   field2.push(d.reclong);
+                  title.push(d.departingairport);
+                  flightLength.push(d.length);
               })
+
+              // csv.forEach(function(d) {
+              //   d.reclat = +d.reclat;
+
+              // });
+
               //called after the AJAX is success
               console.log("field1",field1);
               console.log("field2",field2);
-              console.log("field1",field1[0]);
-          });
+              console.log("title",title);
+              console.log("flightLength",flightLength);
+         
 
 
 queue()
     
     .defer(d3.json, "https://raw.githubusercontent.com/ScottReinhard/captain-reinhard/master/world-110m.json")             //world data
-    .defer(d3.tsv, "https://bl.ocks.org/mbostock/raw/4090846/world-country-names.tsv")                          // countries, load flight data here
+    .defer(d3.tsv, "https://raw.githubusercontent.com/ScottReinhard/captain-reinhard/master/world-country-names.tsv")                          // countries, load flight data here
     .await(ready);                                                                                              //if ready, goes
 
 function ready(error, world, names) {
@@ -92,11 +137,57 @@ function ready(error, world, names) {
   (function transition() {
     d3.transition()         //setting up transition
     .ease(d3.easeSin)
-        .duration(1000)   //duration of transition
+        .duration(function(d){return flightLength[i + 1] * 100})   //duration of transition
+        // .duration(function(d) {
+        //       // return flightLength[i];
+
+        //     })
 
         .each("start", function() {                             //starts sequence
-          title.text(countries[i = (i + 1) % n].name);          //cycle through the array of names/countries
+          
+
+          i++;          //cycle through the array of names/countries
+          if( i > title.length - 2){
+            i = 0;
+
+          }
+
+
+
+
+
+          // title.text(countries[i = (i + 1) % n].name);
+          d3.select("#airport")
+            // console.log(flightLength[i]);
+            .text("AIRPORT");
+
+            d3.select("#airportData")
+              // console.log(flightLength[i]);
+              .text(title[i]);
+
+              d3.select("#flightTime")
+                // console.log(flightLength[i]);
+                .text("FLIGHT TIME (HOURS)");
+
+                d3.select("#flightData")
+                  // console.log(flightLength[i]);
+                  .text(flightLength [i]);
+
+
+            var circleAttributes = circles
+                                   .attr("cx", 50)
+                                   .attr("cy", 50)
+                                   .attr("r", function (d) { return d; })
+                                   .style("fill", "green");
+
+            // d3.select("h1")
+            //   // console.log(flightLength[i]);
+            //   .text(title[i] + " Flight Time (Hours) " + flightLength [i]);
+
+          console.log(flightLength[i])
         })
+
+        
 
         .tween("rotate", function() {
           var p = d3.geo.centroid(countries[i]), 
@@ -113,17 +204,7 @@ function ready(error, world, names) {
             projection.rotate(r(t));                                                                //actually rotates globe
             c.clearRect(0, 0, width, height);                                                       //clears previous frame
 
-            // add circles to svg
-                svg.selectAll("circle")
-                    .data(csv)
-                    .enter()
-                    .append("circle")
-                    .attr("cx", function (d) { return field1[i];})
-                    .attr("cy", function (d) { return field2[i];})
-                    
-                    .attr("r", "10px")
-                    .attr("fill", "red")
-
+           
             c.fillStyle = "#ccc", c.beginPath(), path(land), c.fill();                              //unselected countries
             // c.fillStyle = "#f00", c.beginPath(), path(countries[i]), c.fill();                      //selected country
 
@@ -133,9 +214,12 @@ function ready(error, world, names) {
         
         })
       .transition()
+
         .each("end", transition);
   })();
 }
+
+ });
 
 d3.select(self.frameElement).style("height", height + "px");                                    //not sure 
 

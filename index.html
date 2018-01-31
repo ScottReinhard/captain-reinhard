@@ -2,6 +2,12 @@
 <meta charset="utf-8">
 <style>
 
+body{
+  background-color: rgba(255,255,255,1);
+
+}
+
+
 #airport {
   position: absolute;
   top: 30px;
@@ -42,11 +48,57 @@
   width: 100%;
 }
 
+#date {
+  position: absolute;
+  top: 230px;
+  font-family: monospace;
+  font-size: 14px;
+  text-align: left;
+  width: 100%;
+  font-weight: normal;
+  letter-spacing: .1em;
+}
+
+#dateData {
+  position: absolute;
+  top: 200px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 72px;
+  text-align: left;
+  width: 100%;
+}
+
+#aircraft {
+  position: absolute;
+  top: 330px;
+  font-family: monospace;
+  font-size: 14px;
+  text-align: left;
+  width: 100%;
+  font-weight: normal;
+  letter-spacing: .1em;
+}
+
+#aircraftData {
+  position: absolute;
+  top: 300px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 72px;
+  text-align: left;
+  width: 100%;
+}
+
 </style>
 <h1 id = "airport"></h1>
 <h1 id = "airportData"></h1>
 <h1 id = "flightTime"></h1>
 <h1 id = "flightData"></h1>
+<h1 id = "date"></h1>
+<h1 id = "dateData"></h1>
+<h1 id = "aircraft"></h1>
+<h1 id = "aircraftData"></h1>
+
+
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/queue.v1.min.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
@@ -79,19 +131,22 @@ var field1=[];
 var field2=[];
 var title=[];
 var flightLength=[];
+var day=[];
+var month=[];
+var year=[];
+var aircraft = [];
 
 d3.csv("https://raw.githubusercontent.com/ScottReinhard/captain-reinhard/master/nov48.csv",function(csv){
               csv.map(function(d){
                   field1.push(d.reclat);
                   field2.push(d.reclong);
                   title.push(d.departingairport);
+                  day.push(d.day);
+                  month.push(d.month);
+                  year.push(d.year);
                   flightLength.push(d.length);
+                  aircraft.push(d.aircraftmodel);
               })
-
-              // csv.forEach(function(d) {
-              //   d.reclat = +d.reclat;
-
-              // });
 
               //called after the AJAX is success
               console.log("field1",field1);
@@ -104,16 +159,13 @@ d3.csv("https://raw.githubusercontent.com/ScottReinhard/captain-reinhard/master/
 queue()
     
     .defer(d3.json, "https://raw.githubusercontent.com/ScottReinhard/captain-reinhard/master/world-110m.json")             //world data
-    .defer(d3.tsv, "https://raw.githubusercontent.com/ScottReinhard/captain-reinhard/master/world-country-names.tsv")                          // countries, load flight data here
+    .defer(d3.tsv, "https://raw.githubusercontent.com/ScottReinhard/captain-reinhard/master/world-country-names.tsv")                          //                                                                                                           countries, load flight data here
     .await(ready);                                                                                              //if ready, goes
 
 function ready(error, world, names) {
   if (error) throw error;
 
-  // create svg variable
-     var svg = d3.select("body").append("svg")
-                    .attr("width", width)
-                    .attr("height", height);
+
 
 
   var globe = {type: "Sphere"}, //mainly for stroke style
@@ -123,25 +175,11 @@ function ready(error, world, names) {
       i = -1,               // i starting point
       n = countries.length; //number of countries (could translate to number of rows in a table)
 
-  countries = countries.filter(function(d) {
-    return names.some(function(n) {
-      if (d.id == n.id) return d.name = n.name;
-    });
- })
-
-    .sort(function(a, b) {                                                              //sorts list into alphabetical / turn this off when loading a table
-    return a.name.localeCompare(b.name);
-  });
-
 
   (function transition() {
     d3.transition()         //setting up transition
     .ease(d3.easeSin)
         .duration(function(d){return flightLength[i + 1] * 100})   //duration of transition
-        // .duration(function(d) {
-        //       // return flightLength[i];
-
-        //     })
 
         .each("start", function() {                             //starts sequence
           
@@ -149,11 +187,13 @@ function ready(error, world, names) {
           i++;          //cycle through the array of names/countries
           if( i > title.length - 2){
             i = 0;
-
           }
 
 
-
+          // create svg variable
+          // var svg = d3.select("body").append("svg")
+          //                   .attr("width", width)
+          //                   .attr("height", height);
 
 
           // title.text(countries[i = (i + 1) % n].name);
@@ -173,29 +213,40 @@ function ready(error, world, names) {
                   // console.log(flightLength[i]);
                   .text(flightLength [i]);
 
+                  d3.select("#date")
+                    // console.log(flightLength[i]);
+                    .text("DATE");
 
-            var circleAttributes = circles
-                                   .attr("cx", 50)
-                                   .attr("cy", 50)
-                                   .attr("r", function (d) { return d; })
-                                   .style("fill", "green");
+                    d3.select("#dateData")
+                      // console.log(flightLength[i]);
+                      .text(day[i] + " " + month[i] + " " + year[i]);
 
-            // d3.select("h1")
-            //   // console.log(flightLength[i]);
-            //   .text(title[i] + " Flight Time (Hours) " + flightLength [i]);
+                      d3.select("#aircraft")
+                        // console.log(flightLength[i]);
+                        .text("AIRCRAFT");
+
+                        d3.select("#aircraftData")
+                          // console.log(flightLength[i]);
+                          .text(aircraft[i]);
+
+
+                          d3.selectAll("aircraftData")
+                              .data(csv)
+                              .enter().append("circle")
+                              .style("stroke", "gray")
+                              .style("fill", "red")
+                              .attr("r", 400)
+                              .attr("cx", 50)
+                              .attr("cy", 20);
+
 
           console.log(flightLength[i])
         })
 
-        
-
         .tween("rotate", function() {
           var p = d3.geo.centroid(countries[i]), 
                                        //finds centroid of each country, but how do you go to coordinates? Seems important
-              // r = d3.interpolate(projection.rotate(), [-p[0], -p[1]]);      //interpolates between two points, you would load in them here
               r = d3.interpolate(projection.rotate(), [-field2[i], -field1[i]]);      //interpolates between two points, you would load in them here
-              // console.log(p);
-              // console.log(i);
               console.log("field1",field1[i]);
               console.log("field2",field2[i]);
               
@@ -205,7 +256,7 @@ function ready(error, world, names) {
             c.clearRect(0, 0, width, height);                                                       //clears previous frame
 
            
-            c.fillStyle = "#ccc", c.beginPath(), path(land), c.fill();                              //unselected countries
+            c.fillStyle = "#0000ff", c.beginPath(), path(land), c.fill();                              //unselected countries
             // c.fillStyle = "#f00", c.beginPath(), path(countries[i]), c.fill();                      //selected country
 
             c.strokeStyle = "#fff", c.lineWidth = .5, c.beginPath(), path(borders), c.stroke();

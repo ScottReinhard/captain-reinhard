@@ -111,7 +111,7 @@ var width = 960,
 
 var projection = d3.geo.orthographic()
     // .translate([width / 2, height / 2])
-    .scale(width / 2 - 20) //scale in browser window
+    .scale(width / 2 - 300) //scale in browser window
     .clipAngle(90) // how much of the globe to view
     .precision(0.6);
 
@@ -124,6 +124,8 @@ var c = canvas.node().getContext("2d");
 var path = d3.geo.path()
     .projection(projection)
     .context(c);
+var svg = d3.select("svg");
+var g = svg.append("g");
 
 var headline = d3.select("h1");
 
@@ -176,6 +178,20 @@ function ready(error, world, names) {
       n = countries.length; //number of countries (could translate to number of rows in a table)
 
 
+svg.selectAll("circle")
+             .data(csv)
+             .enter()
+             .append("circle")
+             .attr("cx", function(d) {
+               return field1[i];
+             })
+             .attr("cy", function(d) {
+               return field2[i];
+             })
+             .attr("r", "1200px") //radius of the point you have added
+             .attr("fill", "red"); //filling color of the point you have added
+
+
   (function transition() {
     d3.transition()         //setting up transition
     .ease(d3.easeSin)
@@ -189,6 +205,8 @@ function ready(error, world, names) {
             i = 0;
           }
 
+
+          
 
           // create svg variable
           // var svg = d3.select("body").append("svg")
@@ -230,14 +248,7 @@ function ready(error, world, names) {
                           .text(aircraft[i]);
 
 
-                          d3.selectAll("aircraftData")
-                              .data(csv)
-                              .enter().append("circle")
-                              .style("stroke", "gray")
-                              .style("fill", "red")
-                              .attr("r", 400)
-                              .attr("cx", 50)
-                              .attr("cy", 20);
+                          
 
 
           console.log(flightLength[i])

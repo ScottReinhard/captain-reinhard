@@ -1,0 +1,425 @@
+{
+   "type": "FeatureCollection",
+   "features": [
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 144.9244444,13.57611111 ]
+    },
+    "properties": {
+    "day":1,
+    "month":11,
+    "year":1948,
+    "aircraft-model":"R5D",
+    "bureau-number":50851,
+    "character-of-flight":"N",
+    "flight-time-pilot":"",
+    "flight-time-co-pilot":4.1,
+    "flight-time-student":"",
+    "flight-time-passenger":4,
+    "instrument-time":"",
+    "multi-engine-day":8.1,
+    "multi-engine-night":null,
+    "single-engine-night":"",
+    "total-flight-time":8.1,
+    "departing-airport":"Guam",
+    "arrival-airport":"Kwajalein",
+    "arrival-latitude":8.72,
+    "arrival-longitude":167.7316667
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 167.7316667,8.72 ]
+    },
+    "properties": {
+    "day":1,
+    "month":11,
+    "year":1948,
+    "aircraft-model":"R5D",
+    "bureau-number":50851,
+    "character-of-flight":"N",
+    "flight-time-pilot":"",
+    "flight-time-co-pilot":4.5,
+    "flight-time-student":"",
+    "flight-time-passenger":4.5,
+    "instrument-time":"",
+    "multi-engine-day":1.9,
+    "multi-engine-night":7.9,
+    "single-engine-night":"",
+    "total-flight-time":9,
+    "departing-airport":"Kwajalein",
+    "arrival-airport":"Johnson",
+    "arrival-latitude":35.8408,
+    "arrival-longitude":139.394
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 139.394,35.8408 ]
+    },
+    "properties": {
+    "day":1,
+    "month":11,
+    "year":1948,
+    "aircraft-model":"R5D",
+    "bureau-number":50851,
+    "character-of-flight":"N",
+    "flight-time-pilot":"",
+    "flight-time-co-pilot":3,
+    "flight-time-student":"",
+    "flight-time-passenger":1.8,
+    "instrument-time":"",
+    "multi-engine-day":null,
+    "multi-engine-night":4.8,
+    "single-engine-night":"",
+    "total-flight-time":4.8,
+    "departing-airport":"Johnson",
+    "arrival-airport":"Honolulu",
+    "arrival-latitude":21.3488,
+    "arrival-longitude":-157.9436
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -157.9436,21.3488 ]
+    },
+    "properties": {
+    "day":2,
+    "month":11,
+    "year":1948,
+    "aircraft-model":"R5D",
+    "bureau-number":50851,
+    "character-of-flight":"N",
+    "flight-time-pilot":"",
+    "flight-time-co-pilot":6,
+    "flight-time-student":"",
+    "flight-time-passenger":6.1,
+    "instrument-time":"",
+    "multi-engine-day":2.1,
+    "multi-engine-night":10,
+    "single-engine-night":"",
+    "total-flight-time":12.1,
+    "departing-airport":"Honolulu",
+    "arrival-airport":"Moffett",
+    "arrival-latitude":37.415,
+    "arrival-longitude":-122.0483333
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -122.0483333,37.415 ]
+    },
+    "properties": {
+    "day":3,
+    "month":11,
+    "year":1948,
+    "aircraft-model":"R5D",
+    "bureau-number":56507,
+    "character-of-flight":"N",
+    "flight-time-pilot":"",
+    "flight-time-co-pilot":4,
+    "flight-time-student":"",
+    "flight-time-passenger":4,
+    "instrument-time":"",
+    "multi-engine-day":5,
+    "multi-engine-night":null,
+    "single-engine-night":"",
+    "total-flight-time":8,
+    "departing-airport":"Moffett",
+    "arrival-airport":"Kelly",
+    "arrival-latitude":29.382,
+    "arrival-longitude":-98.5785
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -98.5785,29.382 ]
+    },
+    "properties": {
+    "day":4,
+    "month":11,
+    "year":1948,
+    "aircraft-model":"R5D",
+    "bureau-number":56507,
+    "character-of-flight":"N",
+    "flight-time-pilot":"",
+    "flight-time-co-pilot":2,
+    "flight-time-student":"",
+    "flight-time-passenger":2.2,
+    "instrument-time":"",
+    "multi-engine-day":1.2,
+    "multi-engine-night":null,
+    "single-engine-night":"",
+    "total-flight-time":4.2,
+    "departing-airport":"Kelly",
+    "arrival-airport":"Jax",
+    "arrival-latitude":30.2231,
+    "arrival-longitude":-81.6852
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -81.6852,30.2231 ]
+    },
+    "properties": {
+    "day":7,
+    "month":11,
+    "year":1948,
+    "aircraft-model":"R5D",
+    "bureau-number":56507,
+    "character-of-flight":"N",
+    "flight-time-pilot":"",
+    "flight-time-co-pilot":2.5,
+    "flight-time-student":"",
+    "flight-time-passenger":2.6,
+    "instrument-time":"",
+    "multi-engine-day":5.1,
+    "multi-engine-night":null,
+    "single-engine-night":"",
+    "total-flight-time":5.1,
+    "departing-airport":"Jax",
+    "arrival-airport":"Westover",
+    "arrival-latitude":42.1991,
+    "arrival-longitude":-72.5438
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -72.5438,42.1991 ]
+    },
+    "properties": {
+    "day":8,
+    "month":11,
+    "year":1948,
+    "aircraft-model":"R5D",
+    "bureau-number":56507,
+    "character-of-flight":"N",
+    "flight-time-pilot":"",
+    "flight-time-co-pilot":2.9,
+    "flight-time-student":"",
+    "flight-time-passenger":2.9,
+    "instrument-time":"",
+    "multi-engine-day":5.2,
+    "multi-engine-night":null,
+    "single-engine-night":"",
+    "total-flight-time":5.8,
+    "departing-airport":"Westover",
+    "arrival-airport":"Argentia",
+    "arrival-latitude":47.3105,
+    "arrival-longitude":-53.986
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -53.986,47.3105 ]
+    },
+    "properties": {
+    "day":9,
+    "month":11,
+    "year":1948,
+    "aircraft-model":"R5D",
+    "bureau-number":56507,
+    "character-of-flight":"N",
+    "flight-time-pilot":"",
+    "flight-time-co-pilot":3.7,
+    "flight-time-student":"",
+    "flight-time-passenger":3.7,
+    "instrument-time":"",
+    "multi-engine-day":7.4,
+    "multi-engine-night":null,
+    "single-engine-night":"",
+    "total-flight-time":7.4,
+    "departing-airport":"Argentia",
+    "arrival-airport":"Lagens",
+    "arrival-latitude":38.7539,
+    "arrival-longitude":-27.0869
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -27.0869,38.7539 ]
+    },
+    "properties": {
+    "day":11,
+    "month":11,
+    "year":1948,
+    "aircraft-model":"R5D",
+    "bureau-number":56507,
+    "character-of-flight":"N",
+    "flight-time-pilot":"",
+    "flight-time-co-pilot":5.1,
+    "flight-time-student":"",
+    "flight-time-passenger":5.2,
+    "instrument-time":"",
+    "multi-engine-day":10.3,
+    "multi-engine-night":null,
+    "single-engine-night":"",
+    "total-flight-time":10.3,
+    "departing-airport":"Lagens",
+    "arrival-airport":"Marseilles",
+    "arrival-latitude":43.52444444,
+    "arrival-longitude":4.94166667
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 4.94166667,43.52444444 ]
+    },
+    "properties": {
+    "day":12,
+    "month":11,
+    "year":1948,
+    "aircraft-model":"R5D",
+    "bureau-number":56507,
+    "character-of-flight":"N",
+    "flight-time-pilot":"",
+    "flight-time-co-pilot":null,
+    "flight-time-student":"",
+    "flight-time-passenger":3.1,
+    "instrument-time":"",
+    "multi-engine-day":3.1,
+    "multi-engine-night":null,
+    "single-engine-night":"",
+    "total-flight-time":3.1,
+    "departing-airport":"Marseilles",
+    "arrival-airport":"Kaufbueren",
+    "arrival-latitude":47.8628,
+    "arrival-longitude":10.6156
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 10.6156,47.8628 ]
+    },
+    "properties": {
+    "day":13,
+    "month":11,
+    "year":1948,
+    "aircraft-model":"R5D",
+    "bureau-number":56507,
+    "character-of-flight":"N",
+    "flight-time-pilot":"",
+    "flight-time-co-pilot":null,
+    "flight-time-student":"",
+    "flight-time-passenger":1.8,
+    "instrument-time":"",
+    "multi-engine-day":1.8,
+    "multi-engine-night":null,
+    "single-engine-night":"",
+    "total-flight-time":1.8,
+    "departing-airport":"Kaufbueren",
+    "arrival-airport":"Rheinmain",
+    "arrival-latitude":50.032,
+    "arrival-longitude":8.5704
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 8.5704,50.032 ]
+    },
+    "properties": {
+    "day":13,
+    "month":11,
+    "year":1948,
+    "aircraft-model":"R5D",
+    "bureau-number":56485,
+    "character-of-flight":"W",
+    "flight-time-pilot":"",
+    "flight-time-co-pilot":null,
+    "flight-time-student":"",
+    "flight-time-passenger":2.8,
+    "instrument-time":"",
+    "multi-engine-day":null,
+    "multi-engine-night":null,
+    "single-engine-night":"",
+    "total-flight-time":2.8,
+    "departing-airport":"Rheinmain",
+    "arrival-airport":"Tempelhof",
+    "arrival-latitude":52.47361111,
+    "arrival-longitude":13.40166667
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 13.40166667,52.47361111 ]
+    },
+    "properties": {
+    "day":13,
+    "month":11,
+    "year":1948,
+    "aircraft-model":"R5D",
+    "bureau-number":56485,
+    "character-of-flight":"W",
+    "flight-time-pilot":"",
+    "flight-time-co-pilot":null,
+    "flight-time-student":"",
+    "flight-time-passenger":4.6,
+    "instrument-time":"",
+    "multi-engine-day":2.1,
+    "multi-engine-night":6,
+    "single-engine-night":"",
+    "total-flight-time":4.6,
+    "departing-airport":"Tempelhof",
+    "arrival-airport":"Fassberg",
+    "arrival-latitude":52.9156,
+    "arrival-longitude":10.1904
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 10.1904,52.9156 ]
+    },
+    "properties": {
+    "day":15,
+    "month":11,
+    "year":1948,
+    "aircraft-model":"R5D",
+    "bureau-number":56485,
+    "character-of-flight":"W",
+    "flight-time-pilot":"",
+    "flight-time-co-pilot":null,
+    "flight-time-student":"",
+    "flight-time-passenger":2,
+    "instrument-time":"",
+    "multi-engine-day":null,
+    "multi-engine-night":null,
+    "single-engine-night":"",
+    "total-flight-time":2,
+    "departing-airport":"Fassberg",
+    "arrival-airport":"Rheinmain",
+    "arrival-latitude":50.032,
+    "arrival-longitude":8.5704
+    }
+  }
+]
+}
